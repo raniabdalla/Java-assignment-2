@@ -16,12 +16,12 @@ public class Job {
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
-    public Job(){
+    public Job() {
         id = nextId;
         nextId++;
     }
 
-    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency){
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
         this.employer = employer;
@@ -94,33 +94,38 @@ public class Job {
     }
 
     @Override
-    public String toString(){
-        if (this.name ==""){
-            this.name = "Data not available";
-        }
-        if (this.employer.getValue().equals("")){
-            this.employer.setValue("Data not available") ;
-        }
-        if (this.location.getValue().equals("")){
-            this.location.setValue("Data not available");
-        }
-        if (this.positionType.getValue().equals("")){
-            this.positionType.setValue("Data not available");
-        }
-        if (this.coreCompetency.getValue().equals("")){
-            this.coreCompetency.setValue("Data not available");
-        }
-         String s = "\n"+"ID: "+ this.id +"\n"+
-                "Name: " + this.name + "\n" +
-                "Employer: " + this.employer + "\n" +
-                "Location: " + this.location + "\n" +
-                "Position Type: " + this.positionType + "\n" +
-                "Core Competency: " + this.coreCompetency + "\n";
 
-        if (this.name ==""&& this.employer.getValue().equals("") && this.location.getValue().equals("") && this.positionType.getValue().equals("") && this.coreCompetency.getValue().equals("")){
+    public String toString() {
+
+        if (this.name == "" && this.employer.getValue().equals("") && this.location.getValue().equals("") && this.positionType.getValue().equals("") && this.coreCompetency.getValue().equals("")) {
             return "OOPS! This job does not seem to exist.";
-        } else
-        return  s ;
+        } else {
 
+            if (this.name == "") {
+                this.name = "Data not available";
+            }
+            if (this.employer.getValue().equals("")) {
+                this.employer.setValue("Data not available");
+            }
+            if (this.location.getValue().equals("")) {
+                this.location.setValue("Data not available");
+            }
+            if (this.positionType.getValue().equals("")) {
+                this.positionType.setValue("Data not available");
+            }
+            if (this.coreCompetency.getValue().equals("")) {
+                this.coreCompetency.setValue("Data not available");
+            }
+
+            String s = "\n" + "ID: " + this.id + "\n" +
+                    "Name: " + this.name + "\n" +
+                    "Employer: " + this.employer + "\n" +
+                    "Location: " + this.location + "\n" +
+                    "Position Type: " + this.positionType + "\n" +
+                    "Core Competency: " + this.coreCompetency + "\n";
+
+            return s;
+
+        }
     }
 }
